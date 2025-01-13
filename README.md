@@ -26,11 +26,11 @@
 
 ## テーブル設計図
 
-![alt](imageのパス)
+![alt](src/docs/tables.png)
 
 ## ER 図
 
-![alt](ER図のパス)
+![alt](src/docs/cfm.png)
 
 ## 環境構築
 
