@@ -39,7 +39,7 @@
       </div>
       <div class="form__input">
         <label for="email">確認用パスワード</label>
-        <input class="form__input-user" type="password" name="password_confirm">
+        <input class="form__input-user" type="password" name="password_confirmation">
         <div class="form__error">
           @error('password_confirm')
           {{ $message }}
