@@ -98,3 +98,4 @@ php artisan db:seed
 - 開発環境：http://localhost/
 - phpMyAdmin：http://localhost:8080/
 - Mailhog(開発用メール確認ツール)：http://localhost:8025
+# coachtech-freemarket
