@@ -19,7 +19,7 @@
   margin-bottom: 20px;
 }
 
-.form__input label {
+.form__label--item {
   display: block;
   font-size: 14px;
   font-weight: bold;

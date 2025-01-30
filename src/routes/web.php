@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +15,6 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/login', [AuthController::class, 'login']);
-Route::get('/', [AuthController::class, 'index']);
+Route::middleware('auth')->group(function () {
+  Route::get('/', [AuthController::class, 'index']);
+});

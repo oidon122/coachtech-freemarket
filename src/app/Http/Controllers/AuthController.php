@@ -2,21 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function create()
+    public function index()
     {
-        return view('auth/register');
-    }
-
-    public function store(UserRequest $request)
-    {
-        $user = $request->only(['name', 'email', 'password']);
-        User::create($user);
-        return view('auth/login');
+        return view('index');
     }
 }

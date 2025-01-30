@@ -12,7 +12,7 @@
     <form class="login" action="/login" method="post">
       @csrf
       <div class="form__input">
-        <label for="email">ユーザー名/メールアドレス</label>
+        <span class="form__label--item">ユーザー名</span>
         <input class="form__input-user" type="email" name="email" value="{{ old('email') }}">
         <div class="form__error">
           @error('email')
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="form__input">
-        <label for="email">パスワード</label>
+        <span class="form__label--item">パスワード</span>
         <input class="form__input-user" type="password" name="password">
         <div class="form__error">
           @error('password')

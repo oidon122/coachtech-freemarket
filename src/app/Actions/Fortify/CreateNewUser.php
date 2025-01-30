@@ -29,6 +29,18 @@ class CreateNewUser implements CreatesNewUsers
                 Rule::unique(User::class),
             ],
             'password' => $this->passwordRules(),
+            'password_confirmation' => ['required', 'same:password'],
+        ],
+            [
+            'name.required' => 'お名前を入力してください',
+            'name.max' => '名前は191文字以下で入力してください',
+            'email.required' => 'メールアドレスを入力してください',
+            'email.email' => '有効なメールアドレス形式を入力してください',
+            'email.unique' => 'このメールアドレスはすでに使われています',
+            'password.required' => 'パスワードを入力してください',
+            'password.min' => 'パスワードは8文字以上で入力してください',
+            'password_confirmation.required' => '確認用パスワードを入力してください',
+            'password_confirmation.same' => 'パスワードと一致しません',
         ])->validate();
 
         return User::create([
