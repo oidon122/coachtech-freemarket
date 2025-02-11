@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -15,6 +16,9 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::middleware('auth')->group(function () {
-  Route::get('/', [AuthController::class, 'index']);
+Route::middleware(['auth', 'no_address'])->group(function () {
+  Route::get('/', [AuthController::class, 'index'])->name('index');
+  Route::get('/mypage/profile', [UserController::class, 'showProfile'])->name('profile');
+  Route::post('/mypage/profile', [UserController::class, 'editProfile'])->name('profile');
+  Route::get('/mypage', [UserController::class, 'index'])->name('mypage');
 });

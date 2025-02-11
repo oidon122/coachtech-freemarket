@@ -13,7 +13,27 @@
   <header class="header">
     <div class="header__inner">
       <img class="header__logo" src="{{ asset('image/logo.svg') }}" alt="Logo">
-    @yield('header')
+      @auth
+      <div class="header__inner__search">
+        <input type="text" placeholder="なにをお探しですか？">
+      </div>
+      <nav>
+        <ul class="header__inner__nav">
+          <li class="header-nav__item">
+            <form action="/logout" method="post">
+              @csrf
+              <button class="header-nav__logout">ログアウト</button>
+            </form>
+          </li>
+          <li class="header-nav__item">
+            <a class="header-nav__link" href="/mypage">マイページ</a>
+          </li>
+          <li class="header-nav__item">
+            <button class="header-nav__button">出品</button>
+          </li>
+        </ul>
+      </nav>
+      @endauth
     </div>
   </header>
   <main class="main">
