@@ -12,9 +12,9 @@
         @csrf
         <div class="image">
             <img class="profile-image" src="{{ asset('storage/' . (auth()->user()->profile->image ?? 'default-avatar.png')) }}" alt="プロフィール画像">
-            <label class="image-upload-btn">
+            <label class="image-upload-button">
                 画像を選択する
-                <input class="edit-profile-button" type="file" name="image"  accept="image/*">
+                <input type="file" name="image"  accept="image/*" hidden>
             </label>
         </div>
         <div class="form__error">

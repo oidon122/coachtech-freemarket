@@ -56,7 +56,20 @@
   object-fit: cover;
 }
 
-.image-upload-btn {
+.edit-profile-button {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #FFF;
+  color: #ff6666;
+  border: 2px solid #ff6666;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bolder;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.image-upload-button {
   display: inline-block;
   padding: 8px 12px;
   background-color: #FFF;
@@ -73,18 +86,6 @@
   display: none;
 }
 
-.edit-profile-button {
-  display: inline-block;
-  padding: 8px 12px;
-  background-color: #FFF;
-  color: #ff6666;
-  border: 2px solid #ff6666;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 14px;
-}
-
 .profile {
   display: flex;
   margin: 5% 10%;
@@ -92,9 +93,94 @@
   justify-content: space-between;
 }
 
-.profile img {
-  width: 150px;
+.item-image {
+  display: inline-block;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.image-upload-box {
+  max-width:600px;
   height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
+  border: 1px dashed #878787;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__subtitle {
+  color: #878787;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 20px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #878787;
+}
+
+.form__input input, textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #878787;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form__label--item {
+  margin-bottom: 3px;
+}
+
+.category-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 30px auto;
+}
+
+.category-options label {
+  color: #ff6666;
+  font-size: 12px;
+  margin: 5px 3px;
+  padding: 3px 20px;
+  border-radius: 20px;
+  border: 2px solid #ff6666;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-options input:checked+label {
+  background-color: #ff6666;
+  color: white;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #878787;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #878787;
+  background-color: white;
+}
+
+.select-wrapper::after {
+  content: "▼";
+  font-size: 16px;
+  color: #878787;
+  position: absolute;
+  right: 10px;
+  top: 35%;
+  transform: translateY(-50%);
 }

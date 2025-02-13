@@ -29,7 +29,7 @@
             <a class="header-nav__link" href="/mypage">マイページ</a>
           </li>
           <li class="header-nav__item">
-            <button class="header-nav__button">出品</button>
+            <a class="header-nav__button" href="{{ route('items.show') }}">出品</a>
           </li>
         </ul>
       </nav>

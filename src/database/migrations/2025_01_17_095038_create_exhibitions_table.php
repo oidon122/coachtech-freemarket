@@ -16,12 +16,12 @@ class CreateExhibitionsTable extends Migration
         Schema::create('exhibitions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->comstrained()->cascadeOnDelete();
-            $table->string('exhibition');
+            $table->string('name');
             $table->foreignId('category_id')->comstrained()->cascadeOnDelete();
             $table->string('status');
             $table->integer('price');
             $table->string('description');
-            $table->string('image_path');
+            $table->string('image');
             $table->timestamps();
         });
     }

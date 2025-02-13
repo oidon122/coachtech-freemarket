@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ItemCOntroller;
 
 
 /*
@@ -21,4 +22,6 @@ Route::middleware(['auth', 'no_address'])->group(function () {
   Route::get('/mypage/profile', [UserController::class, 'showProfile'])->name('profile');
   Route::post('/mypage/profile', [UserController::class, 'editProfile'])->name('profile');
   Route::get('/mypage', [UserController::class, 'index'])->name('mypage');
+  Route::post('/items/sell', [ItemController::class, 'sell'])->name('items.sell');
+  Route::get('/items/sell', [ItemController::class, 'show'])->name('items.show');
 });
