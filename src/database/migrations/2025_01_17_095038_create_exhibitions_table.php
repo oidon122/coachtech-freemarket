@@ -17,8 +17,8 @@ class CreateExhibitionsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->comstrained()->cascadeOnDelete();
             $table->string('name');
-            $table->foreignId('category_id')->comstrained()->cascadeOnDelete();
-            $table->string('status');
+            $table->string('condition');
+            $table->string('brand')->nullable();
             $table->integer('price');
             $table->string('description');
             $table->string('image');

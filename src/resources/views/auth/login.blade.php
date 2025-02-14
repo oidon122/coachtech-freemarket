@@ -16,7 +16,7 @@
         <input class="form__input-user" type="email" name="email" value="{{ old('email') }}">
         <div class="form__error">
           @error('email')
-          {{ $message }}
+          <p>{{ $message }}</p>
           @enderror
         </div>
       </div>
@@ -25,7 +25,7 @@
         <input class="form__input-user" type="password" name="password">
         <div class="form__error">
           @error('password')
-          {{ $message }}
+          <p>{{ $message }}</p>
           @enderror
         </div>
       </div>

@@ -33,7 +33,7 @@
           <select class="form__input" id="condition" name="condition" required>
             <option value="" hidden>選択してください</option>
             <option value="良好">良好</option>
-            <option option value="目立った傷や汚れなし">目立った傷や汚れなし</option>
+            <option value="目立った傷や汚れなし">目立った傷や汚れなし</option>
             <option value="やや傷や汚れあり">やや傷や汚れあり</option>
             <option value="状態が悪い">状態が悪い</option>
           </select>
@@ -46,7 +46,7 @@
         <label for="description" class="form__label--item">商品説明</label>
         <textarea class="form-control" id="description" name="description"></textarea>
         <label for="price" class="form__label--item">価格</label>
-        <input type="number" class="form-control" id="price" name="price" placeholder="¥" required>
+        <input type="number" class="form-control" id="price" name="price" min="0" step="1" placeholder="¥" required>
       </div>
     <button type="submit" class="form__button">出品する</button>
   </form>

@@ -17,11 +17,8 @@
 
 <div class="product-list">
   @if (request()->query('tab') == 'sell')
-    <!-- 出品した商品リストを表示 -->
   @elseif (request()->query('tab') == 'buy')
-    <!-- 購入した商品リストを表示 -->
   @else
-    <!-- デフォルトの表示（出品・購入のリストを両方表示） -->
   @endif
 </div>
 @endsection
