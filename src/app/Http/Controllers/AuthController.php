@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Exhibition;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $exhibitions = Exhibition::all();
+
+        return view('index', compact('exhibitions'));
     }
 }

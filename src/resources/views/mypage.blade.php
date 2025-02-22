@@ -11,8 +11,8 @@
   <a href="{{ route('profile') }}" class="edit-profile-button" >プロフィール編集</a>
 </div>
 <div class="tabs">
-  <a href="?tab=sell" class="tab {{ request()->query('tab') == 'sell' ? 'active' : '' }}">出品した商品</a>
-  <a href="?tab=buy" class="tab {{ request()->query('tab') == 'buy' ? 'active' : '' }}">購入した商品</a>
+  <a href="?tab=sell" class="tab {{ $tab == 'sell' ? 'active' : '' }}">出品した商品</a>
+  <a href="?tab=buy" class="tab {{ $tab == 'buy' ? 'active' : '' }}">購入した商品</a>
 </div>
 <div class="product-list">
   @if ($tab === 'sell')
@@ -27,7 +27,7 @@
       @endforeach
     @endif
   @elseif ($tab === 'buy')
-    <p>購入した商品を表示する処理を追加してください。</p>
+    <p>購入した商品を表示する処理を追加予定</p>
   @else
     <p>タブを選択してください。</p>
   @endif

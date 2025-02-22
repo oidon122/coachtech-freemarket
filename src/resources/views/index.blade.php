@@ -11,17 +11,11 @@
 </div>
 
 <div class="product-list">
-  <div class="product">
-    <img src="商品画像パス" alt="商品画像">
-    <p class="product-name">商品名</p>
+  @foreach($exhibitions as $exhibition)
+  <div class="product-card">
+    <img src="{{ asset('storage/' . $exhibition->image) }}" alt="{{ $exhibition->name }}" class='product-image'>
+    <p class="product-title">{{ $exhibition->name }}</p>
   </div>
-  <div class="product">
-    <img src="商品画像パス" alt="商品画像">
-    <p class="product-name">商品名</p>
-  </div>
-  <div class="product">
-    <img src="商品画像パス" alt="商品画像">
-    <p class="product-name">商品名</p>
-  </div>
+  @endforeach
 </div>
 @endsection

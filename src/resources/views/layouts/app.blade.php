@@ -12,7 +12,9 @@
 <body>
   <header class="header">
     <div class="header__inner">
-      <img class="header__logo" src="{{ asset('image/logo.svg') }}" alt="Logo">
+      <a href="{{ route('index') }}">
+        <img class="header__logo" src="{{ asset('image/logo.svg') }}" alt="Logo">
+      </a>
       @auth
       <div class="header__inner__search">
         <input type="text" placeholder="なにをお探しですか？">
