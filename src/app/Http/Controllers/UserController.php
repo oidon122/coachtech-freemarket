@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProfileRequest;
 use App\Models\Profile;
+use App\Models\Exhibition;
 
 
 class UserController extends Controller
@@ -36,8 +37,14 @@ class UserController extends Controller
         return redirect()->route('index')->with('success', 'プロフィールを更新しました！');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('mypage');
+        $user = Auth::user();
+
+        $sellItems = Exhibition::where('user_id', $user->id)->latest()->get();
+
+        $tab = $request->query('tab', 'sell');
+
+        return view('mypage', compact('user', 'sellItems', 'tab', 'request'));
     }
 }

@@ -14,11 +14,22 @@
   <a href="?tab=sell" class="tab {{ request()->query('tab') == 'sell' ? 'active' : '' }}">出品した商品</a>
   <a href="?tab=buy" class="tab {{ request()->query('tab') == 'buy' ? 'active' : '' }}">購入した商品</a>
 </div>
-
 <div class="product-list">
-  @if (request()->query('tab') == 'sell')
-  @elseif (request()->query('tab') == 'buy')
+  @if ($tab === 'sell')
+    @if ($sellItems->isEmpty())
+      <p>出品した商品はありません。</p>
+    @else
+      @foreach ($sellItems as $item)
+        <div class="product-card">
+          <img src="{{ $item->image ? asset('storage/' . $item->image) : asset('images/no-image.png') }}" alt="{{ $item->name }}" class="product-image">
+          <h3 class="product-title">{{ $item->name }}</h3>
+        </div>
+      @endforeach
+    @endif
+  @elseif ($tab === 'buy')
+    <p>購入した商品を表示する処理を追加してください。</p>
   @else
+    <p>タブを選択してください。</p>
   @endif
 </div>
 @endsection

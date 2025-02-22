@@ -25,11 +25,13 @@ class ExhibitionRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'category_id' => 'required|exists:categories,id',
-            'description' => 'nullable|string',
+            'category_ids' => 'required|array',
+            'category_ids.*' => 'exists:categories,id',
+            'description' => 'required|string|max:255',
             'price' => 'required|numeric|min:1',
-            'image' => 'required|string|max:2048',
-            'status' => 'required|string|max:255',
+            'brand' => 'nullable|string|max:255',
+            'image' => 'nullable|mimes:jpeg,png|max:2048',
+            'condition' => 'required|string|max:255',
         ];
     }
 }

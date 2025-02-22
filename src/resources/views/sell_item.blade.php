@@ -8,7 +8,7 @@
 @section('content')
 <div class="form">
   <h2 class="form-title">商品を出品</h2>
-  <form action="{{ route('items.sell') }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ route('items.sell') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="item-image">
       <label for="image" class="form__label--item">商品画像</label>
@@ -43,6 +43,8 @@
       <div class="form__input">
         <label for="name" class="form__label--item">商品名</label>
         <input type="text" class="form-control" id="name" name="name" required>
+        <label for="brand" class="form__label--item">ブランド名</label>
+        <input type="text" class="form-control" id="brand" name="brand" required>
         <label for="description" class="form__label--item">商品説明</label>
         <textarea class="form-control" id="description" name="description"></textarea>
         <label for="price" class="form__label--item">価格</label>

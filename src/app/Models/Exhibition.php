@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Relations\BelongsToMany;
 
 class Exhibition extends Model
 {
@@ -12,9 +13,10 @@ class Exhibition extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'brand',
         'description',
         'price',
-        'status',
+        'condition',
         'image'
     ];
 
@@ -30,6 +32,6 @@ class Exhibition extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'category_item');
+        return $this->belongsToMany(Category::class, 'exhibition_category');
     }
 }

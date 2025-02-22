@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ExhibitionRequest;
 use App\Models\Exhibition;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ItemController extends Controller
 {
@@ -16,17 +18,30 @@ class ItemController extends Controller
         return view('sell_item', compact('categories'));
     }
 
-    public function sell(ExhibitionRequest $request)
+    public function sellItem(ExhibitionRequest $request)
     {
-        $data = $request->validated();
-        $data['user_id'] = auth()->id();
 
+        $validatedData = $request->validated();
+
+        $path = null;
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('items', 'public');
+            $path = $request->file('image')->store('items', 'public');
         }
 
-        Exhibition::create($data);
+        $exhibition = Exhibition::create([
+            'user_id' => Auth::id(),
+            'name' => $validatedData['name'],
+            'condition' => $validatedData['condition'],
+            'brand' => $validatedData['brand'] ?? null,
+            'price' => $validatedData['price'],
+            'description' => $validatedData['description'],
+            'image' => $path,
+        ]);
 
-        return redirect()->route('item.index')->with('success', '商品を出品しました！');
+        if ($request->has('category_ids')) {
+            $exhibition->categories()->attach($request->category_ids);
+        }
+
+        return redirect()->route('mypage')->with('success', '商品を出品しました！');
     }
 }

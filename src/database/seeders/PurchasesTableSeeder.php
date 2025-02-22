@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PurchasesTableSeeder extends Seeder
 {
@@ -13,13 +14,11 @@ class PurchasesTableSeeder extends Seeder
      */
     public function run()
     {
-        $param = [
-            'name' => 'コンビニ払い'
+        $purchases = [
+            ['name' => 'コンビニ払い'],
+            ['name' => 'カード払い'],
         ];
-        DB::table('purchases')->insert($param);
-        $param = [
-            'category' => 'カード支払い'
-        ];
-        DB::table('purchases')->insert($param);
+
+        DB::table('purchases')->insert($purchases);
     }
 }
