@@ -24,4 +24,5 @@ Route::middleware(['auth', 'no_address'])->group(function () {
   Route::get('/mypage', [UserController::class, 'index'])->name('mypage');
   Route::post('/items/sell', [ItemController::class, 'sellItem'])->name('items.sell');
   Route::get('/items/sell', [ItemController::class, 'show'])->name('items.show');
+  Route::get('/items/{id}', [ItemController::class, 'showDetail'])->name('items.detail');
 });

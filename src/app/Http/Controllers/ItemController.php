@@ -44,4 +44,11 @@ class ItemController extends Controller
 
         return redirect()->route('mypage')->with('success', '商品を出品しました！');
     }
+
+    public function showDetail ($id)
+    {
+        $item = Exhibition::findOrFail($id);
+
+        return view('exhibition', compact('item'));
+    }
 }
